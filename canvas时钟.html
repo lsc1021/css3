@@ -28,9 +28,15 @@
         ctx.lineWidth = 10 * rem;
         // 画圆
         ctx.arc(0, 0, r - ctx.lineWidth / 2, 0, 2 * Math.PI, false);
+         var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+         gradient.addColorStop("1.0", "red");
+            // 用渐变填色
+             ctx.fillStyle = gradient;
         ctx.stroke();
         var clockarr = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
-        ctx.font = 1 * rem + "px Aeial";
+        ctx.font = 10 * rem + "px Aeial";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         clockarr.forEach(function(n,i){
@@ -98,7 +104,7 @@
     //原点
      function drawDot() {
         ctx.beginPath();
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "gold";
         ctx.arc(0, 0, 3 * rem, 0, 2 * Math.PI, false);
         ctx.fill();
     }
